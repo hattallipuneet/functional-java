@@ -9,5 +9,5 @@ Advantages of Functional-Style code:
 
 
 Lexical Scoping:
-    It is a powerful technique that allows to cache values from on context for use later 
+    It is a powerful technique that allows to cache values from one context for use later 
     in another context.
