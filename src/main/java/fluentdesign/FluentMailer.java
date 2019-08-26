@@ -14,6 +14,8 @@ public class FluentMailer {
     public static void send(final Consumer<FluentMailer> block){
         FluentMailer mailer = new FluentMailer();
         block.accept(mailer);
+        System.out.println("Sending mail ....");
+        // MailApi.sendMail(mailer)
     }
 
 }
