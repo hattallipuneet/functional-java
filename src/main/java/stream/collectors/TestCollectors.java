@@ -1,5 +1,6 @@
 package stream.collectors;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,16 @@ public class TestCollectors {
         Map<Integer, List<Friend>> groupByAge = friends.stream()
                                                     .collect(Collectors.groupingBy(Friend::getAge,
                                                         Collectors.toCollection(LinkedList::new)));
+
+        Map<Character, List<Integer>> characterListMap =
+                friends.stream().collect(
+                        Collectors.groupingBy(
+                                friend -> friend.getName().charAt(0),
+                                LinkedHashMap::new,
+                                Collectors.mapping(Friend::getAge, Collectors.toList()))
+                );
+
+        System.out.println(characterListMap.getClass().getName());
 
         groupByAge.forEach((key, value) -> {
             System.out.println(value.getClass().getSimpleName());
